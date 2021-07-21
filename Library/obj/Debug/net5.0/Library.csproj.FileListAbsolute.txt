@@ -83,3 +83,8 @@ C:\Users\Василий\source\repos\GitSimbirSoft\Library\obj\Debug\net5.0\Libr
 C:\Users\Василий\source\repos\GitSimbirSoft\Library\obj\Debug\net5.0\ref\Library.dll
 C:\Users\Василий\source\repos\GitSimbirSoft\Library\obj\Debug\net5.0\Library.pdb
 C:\Users\Василий\source\repos\GitSimbirSoft\Library\obj\Debug\net5.0\Library.genruntimeconfig.cache
+C:\Users\Василий\source\repos\GitSimbirSoft\Library\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\Василий\source\repos\GitSimbirSoft\Library\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Василий\source\repos\GitSimbirSoft\Library\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Василий\source\repos\GitSimbirSoft\Library\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Василий\source\repos\GitSimbirSoft\Library\bin\Debug\net5.0\Library.config
