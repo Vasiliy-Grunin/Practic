@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Library.Models
 {
     /// <summary>
-    /// 
+    /// People Model
     /// </summary>
     public class PeopleDto
     {

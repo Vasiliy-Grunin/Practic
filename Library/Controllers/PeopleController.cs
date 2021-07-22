@@ -20,12 +20,12 @@ namespace Library.Controllers
         /// <summary>
         /// Get all people where name is input name
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="Name"></param>
         /// <returns></returns>
-        [HttpGet("People/{name}")]
-        public List<Models.PeopleDto> GetPeople(string name)
+        [HttpGet("People/{Name}")]
+        public List<Models.PeopleDto> GetPeople(string Name)
         {
-            return _peoples.Where(x=>x.Equals(name)).ToList();
+            return _peoples.Where(x=>x.Name.Equals(Name)).Select(x=>x).ToList();
         }
 
         // GET: PeopleController/Create
@@ -45,10 +45,10 @@ namespace Library.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns>status</returns>
-        [HttpDelete("People/{Peaple}")]
-        public void Delete(Models.PeopleDto People)
+        [HttpDelete("People/{Name} {LastName} {Pathronymic}")]
+        public void Delete([FromBody] string Name, string LastName, string Pathronymic)
         {
-            _peoples.Remove(People);
+            _peoples.Remove(new Models.PeopleDto(Name,LastName,Pathronymic));
         }
 
         /// <summary>
@@ -56,10 +56,10 @@ namespace Library.Controllers
         /// </summary>
         /// <param name="person"></param>
         /// <returns></returns>
-        [HttpPost("People{Name, LastName, Patronymic}")]
-        public ActionResult AddPerson([FromBody] string Name, string LastName, string Patronymic)
+        [HttpPost("People/{Name} {LastName} {Patronymic}")]
+        public void AddPerson([FromBody] string Name, string LastName, string Patronymic)
         {
-            return View();
+            _peoples.Add(new Models.PeopleDto(Name, LastName, Patronymic));
         }
     }
 }
