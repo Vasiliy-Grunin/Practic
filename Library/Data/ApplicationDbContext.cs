@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Library.Models;
 
 namespace Library.Data
 {
@@ -11,6 +12,12 @@ namespace Library.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
+
+
+        public DbSet<PeopleDto> Peoples { get; set; }
+
+        public DbSet<BookDto> Books { get; set; }
     }
 }

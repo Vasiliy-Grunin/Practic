@@ -9,12 +9,12 @@ namespace Library.Controllers
 {
     public class PeopleController : Controller
     {
-        private static readonly List<Models.PeopleDto> _peoples = new() 
+        public PeopleController(Data.ApplicationDbContext context)
         {
-            new Models.PeopleDto("Vasya", "Grunin", "Nik"),
-                new Models.PeopleDto("Gena", "Punin", "Nik"),
-                new Models.PeopleDto("Arkadiy", "Dunin", "Nik"),
-        };
+            _db = context;
+        }
+
+        private readonly Data.ApplicationDbContext _db;
 
         // GET: PeopleController/Details/5
         /// <summary>
@@ -22,10 +22,13 @@ namespace Library.Controllers
         /// </summary>
         /// <param name="Name"></param>
         /// <returns></returns>
-        [HttpGet("People/{Name}")]
+        [HttpGet("PeopleDto/{Name}")]
         public List<Models.PeopleDto> GetPeople(string Name)
         {
-            return _peoples.Where(x=>x.Name.Equals(Name)).Select(x=>x).ToList();
+            return _db.Peoples
+                .Where(x => x.Name.Equals(Name, StringComparison.InvariantCulture))
+                .Select(x => x)
+                .ToList();
         }
 
         // GET: PeopleController/Create
@@ -33,22 +36,26 @@ namespace Library.Controllers
         /// Get all people
         /// </summary>
         /// <returns></returns>
-        [HttpGet("People/")]
+        [HttpGet("PeopleDto/")]
         public List<Models.PeopleDto> GetAllPeople()
         {
-            return _peoples;
+            return _db.Peoples.ToList();
         }
 
         // GET: PeopleController/Delete/5
         /// <summary>
         /// delete person
         /// </summary>
-        /// <param name="id"></param>
         /// <returns>status</returns>
-        [HttpDelete("People/{Name} {LastName} {Pathronymic}")]
-        public void Delete([FromBody] string Name, string LastName, string Pathronymic)
+        [HttpDelete("PeopleDto/Name LastName Patronymic")]
+        public void Delete([FromBody][Bind("LastName,Name,Patronymic")] Models.PeopleDto people)
         {
-            _peoples.Remove(new Models.PeopleDto(Name,LastName,Pathronymic));
+            var deletePerson = _db.Peoples
+                .Where(person => person.Name == people.Name
+                && person.LastName == people.LastName
+                && person.Patronymic == people.Patronymic);
+            _db.RemoveRange(deletePerson);
+            _db.SaveChanges();
         }
 
         /// <summary>
@@ -56,10 +63,11 @@ namespace Library.Controllers
         /// </summary>
         /// <param name="person"></param>
         /// <returns></returns>
-        [HttpPost("People/{Name} {LastName} {Patronymic}")]
-        public void AddPerson([FromBody] string Name, string LastName, string Patronymic)
+        [HttpPost("PeopleDto/LastName Name Patronymic")]
+        public void AddPerson([FromBody][Bind("LastName,Name,Patronymic")] Models.PeopleDto people)
         {
-            _peoples.Add(new Models.PeopleDto(Name, LastName, Patronymic));
+            _db.Peoples.Add(people);
+            _db.SaveChanges();
         }
     }
 }

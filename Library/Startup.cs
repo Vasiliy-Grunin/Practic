@@ -46,7 +46,7 @@ namespace Library
                 {
                     Version = "v1",
                     Title = "Library API",
-                    Description = "A simple example ASP.NET Core Web API",
+                    Description = "A simple example ASP.NET Core Web API book and people",
                 });
 
                 // Set the comments path for the Swagger JSON and UI.
