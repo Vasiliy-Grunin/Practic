@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace Library.Models
 {
@@ -14,10 +15,16 @@ namespace Library.Models
     {
         public int Id { get; set; }
 
+        [Required]
+        [StringLength(50, MinimumLength = 1)]
         public string Name { get; set; }
 
+        [Required]
+        [StringLength(50,MinimumLength = 1)]
         public string LastName { get; set; }
 
+        [Required]
+        [StringLength(50, MinimumLength = 1)]
         public string Patronymic { get; set; }
 
         public bool Equals(PeopleDto other)
@@ -33,9 +40,7 @@ namespace Library.Models
         }
 
         public override string ToString()
-        {
-            return string.Format("{0} {1} {2} {3}", Id, LastName, Name, Patronymic);
-        }
+            => string.Format("{0} {1} {2} {3}", Id, LastName, Name, Patronymic);
 
         public override int GetHashCode() => Id.GetHashCode()
                                              ^ Name.GetHashCode()

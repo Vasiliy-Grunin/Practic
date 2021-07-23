@@ -47,15 +47,19 @@ namespace Library.Controllers
         /// delete person
         /// </summary>
         /// <returns>status</returns>
-        [HttpDelete("PeopleDto/Name LastName Patronymic")]
+        [HttpDelete("PeopleDto/NameLastNamePatronymic")]
         public void Delete([FromBody][Bind("LastName,Name,Patronymic")] Models.PeopleDto people)
         {
-            var deletePerson = _db.Peoples
+            if(ModelState.IsValid)
+            {
+                var deletePerson = _db.Peoples
                 .Where(person => person.Name == people.Name
                 && person.LastName == people.LastName
                 && person.Patronymic == people.Patronymic);
-            _db.RemoveRange(deletePerson);
-            _db.SaveChanges();
+                _db.RemoveRange(deletePerson);
+                _db.SaveChanges();
+
+            }
         }
 
         /// <summary>
@@ -63,11 +67,14 @@ namespace Library.Controllers
         /// </summary>
         /// <param name="person"></param>
         /// <returns></returns>
-        [HttpPost("PeopleDto/LastName Name Patronymic")]
+        [HttpPost("PeopleDto/LastNameNamePatronymic")]
         public void AddPerson([FromBody][Bind("LastName,Name,Patronymic")] Models.PeopleDto people)
         {
-            _db.Peoples.Add(people);
-            _db.SaveChanges();
+            if(ModelState.IsValid)
+            { 
+                _db.Peoples.Add(people);
+                _db.SaveChanges();
+            }
         }
     }
 }

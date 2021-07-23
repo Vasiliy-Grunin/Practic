@@ -52,8 +52,11 @@ namespace Library.Controllers
         [HttpPost("book/Author Name Direction")]
         public void CreateBook([FromBody][Bind("Author,Name,Direction")] Models.BookDto book)
         {
-            _db.Books.Add(book);
-            _db.SaveChanges();
+            if(ModelState.IsValid)
+            {
+                _db.Books.Add(book);
+                _db.SaveChanges();
+            }
         }
 
         // POST : BookController/Delete/5
@@ -63,8 +66,11 @@ namespace Library.Controllers
         [HttpDelete("book/Name Author")]
         public void Delete([FromBody][Bind("Author,Name,Direction")] Models.BookDto book)
         {
-            _db.Books.Remove(book);
-            _db.SaveChanges();
+            if(ModelState.IsValid)
+            {
+                _db.Books.Remove(book);
+                _db.SaveChanges();
+            }
         }
     }
 }
