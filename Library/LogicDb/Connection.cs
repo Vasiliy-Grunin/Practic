@@ -25,6 +25,7 @@ namespace Library.LogicDb
         {
             if (entity is null)
                 throw new ArgumentException(null);
+
             dbSet.Add(entity);
             Save();
         }
@@ -33,6 +34,7 @@ namespace Library.LogicDb
         {
             if (entity is null)
                 throw new ArgumentException(null);
+
             dbSet.Remove(entity);
             Save();
         }
@@ -46,6 +48,7 @@ namespace Library.LogicDb
         {
             if (query is null)
                 throw new ArgumentException(null);
+
             return dbSet
                 .Where(entity => entity.ToString().Contains(query))
                 .AsEnumerable();

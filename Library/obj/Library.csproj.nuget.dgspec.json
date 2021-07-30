@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Василий\\source\\repos\\GitSimbirSoft\\Library\\Library.csproj": {}
+    "C:\\Users\\Василий\\Source\\Repos\\Practic\\Library\\Library.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Василий\\source\\repos\\GitSimbirSoft\\Library\\Library.csproj": {
+    "C:\\Users\\Василий\\Source\\Repos\\Practic\\Library\\Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Василий\\source\\repos\\GitSimbirSoft\\Library\\Library.csproj",
+        "projectUniqueName": "C:\\Users\\Василий\\Source\\Repos\\Practic\\Library\\Library.csproj",
         "projectName": "Library",
-        "projectPath": "C:\\Users\\Василий\\source\\repos\\GitSimbirSoft\\Library\\Library.csproj",
+        "projectPath": "C:\\Users\\Василий\\Source\\Repos\\Practic\\Library\\Library.csproj",
         "packagesPath": "C:\\Users\\Василий\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Василий\\source\\repos\\GitSimbirSoft\\Library\\obj\\",
+        "outputPath": "C:\\Users\\Василий\\Source\\Repos\\Practic\\Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -65,6 +65,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[5.0.7, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
             }
           },
           "imports": [
