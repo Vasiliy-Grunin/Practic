@@ -21,18 +21,21 @@ namespace Library.Controllers
         /// <summary>
         /// Get all people where name is input name
         /// </summary>
-        /// <param name="Name"></param>
+        /// <param name="name"></param>
         /// <returns></returns>
         [HttpGet("PeopleDto/{Name}/")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BookDto))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PeopleDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<PeopleDto>> GetPeople(string Name)
+        public ActionResult<List<PeopleDto>> GetPeople(string name)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState.ToString());
+            if (string.IsNullOrWhiteSpace(name))
+                return BadRequest("name is null");
 
-            return Ok(peoples.Get(Name)
-                .Select(people => new PeopleDto() { Name=people.Name, LastName=people.LastName, Patronymic=people.Patronymic })
+            return Ok(peoples.Get(name)
+                .Select(people => new PeopleDto() {
+                    Name = people.Name,
+                    LastName = people.LastName,
+                    Patronymic = people.Patronymic })
                 .ToList());
         }
 
@@ -41,7 +44,7 @@ namespace Library.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("PeopleDto/")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BookDto))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PeopleDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<List<PeopleDto>> GetAllPeople()
         {
@@ -49,7 +52,10 @@ namespace Library.Controllers
                 return BadRequest(ModelState.ToString());
 
             return peoples.Get()
-                .Select(people => new PeopleDto() { Name = people.Name, LastName = people.LastName, Patronymic = people.Patronymic })
+                .Select(people => new PeopleDto() {
+                    Name = people.Name,
+                    LastName = people.LastName,
+                    Patronymic = people.Patronymic })
                 .ToList();
         }
 
@@ -58,7 +64,7 @@ namespace Library.Controllers
         /// </summary>
         /// <returns>status</returns>
         [HttpDelete("PeopleDto/NameLastNamePatronymic/")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BookDto))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PeopleDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult Delete([FromBody][Bind("LastName,Name,Patronymic")] PeopleDto people)
         {
@@ -75,7 +81,7 @@ namespace Library.Controllers
         /// <param name="person"></param>
         /// <returns></returns>
         [HttpPost("PeopleDto/LastNameNamePatronymic/")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BookDto))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PeopleDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult AddPerson([FromBody][Bind("LastName,Name,Patronymic")] PeopleDto people)
         {
