@@ -22,15 +22,21 @@ namespace Library.Controllers
         /// <summary>
         /// create new list book according to the specified criterion
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="title"></param>
         /// <returns></returns>
-        [HttpGet("book/{Name}/")]
+        [HttpGet("book/{Title}/")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BookDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<BookDto>> GetBooks(string name)
+        public ActionResult<List<BookDto>> GetBooks(string title)
         {
-            return Ok(books.Get(name)
-                .Select(book => new BookDto() { Author = book.Author, Genre = book.Genre, Title = book.Title })
+            if (string.IsNullOrWhiteSpace(title))
+                return BadRequest("Title is null or whiteSpace");
+
+            return Ok(books.Get(title)
+                .Select(book => new BookDto() {
+                    Author = book.Author,
+                    Genre = book.Genre,
+                    Title = book.Title })
                 .ToList());
         }
 
@@ -44,7 +50,10 @@ namespace Library.Controllers
         public ActionResult<List<BookDto>> GetBooks()
         {
             return Ok(books.Get()
-                .Select(book => new BookDto() { Author = book.Author, Genre = book.Genre, Title = book.Title })
+                .Select(book => new BookDto() {
+                    Author = book.Author,
+                    Genre = book.Genre,
+                    Title = book.Title })
                 .ToList());
         }
 
