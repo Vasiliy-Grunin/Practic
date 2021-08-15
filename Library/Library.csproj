@@ -6,12 +6,58 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="PAL\wwwroot\css\site.css" />
+    <Content Include="PAL\wwwroot\favicon.ico" />
+    <Content Include="PAL\wwwroot\js\site.js" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <Content Include="PAL\wwwroot\lib\bootstrap\LICENSE" />
+    <Content Include="PAL\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <Content Include="PAL\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <Content Include="PAL\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+    <Content Include="PAL\wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <Content Include="PAL\wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <Content Include="PAL\wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <Content Include="PAL\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="PAL\wwwroot\lib\jquery-validation\LICENSE.md" />
+    <Content Include="PAL\wwwroot\lib\jquery\dist\jquery.js" />
+    <Content Include="PAL\wwwroot\lib\jquery\dist\jquery.min.js" />
+    <Content Include="PAL\wwwroot\lib\jquery\dist\jquery.min.map" />
+    <Content Include="PAL\wwwroot\lib\jquery\LICENSE.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BLL\" />
   </ItemGroup>
 
 </Project>
