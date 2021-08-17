@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using Library.DAL.Entitys.Dto.Default;
 using Library.DAL.Entitys.Interfaces;
 
 namespace Library.DAL.Entitys.Dto
@@ -11,11 +12,8 @@ namespace Library.DAL.Entitys.Dto
     /// </summary>
     
     [DataContract]
-    public class BookDto : IEquatable<BookDto>, IBook<AuthorDto,GenryDto>
+    public class BookDto : Default.BookDto, IEquatable<BookDto>, IBook<AuthorDto,GenryDto>
     {
-        [Required]
-        [StringLength(50, ErrorMessage = "the name is too long", MinimumLength = 1)]
-        public string Title { get; set; }
         public virtual AuthorDto Author { get; set; }
         public virtual List<GenryDto> Genre { get; set; }
 

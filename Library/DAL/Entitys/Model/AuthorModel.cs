@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library.DAL.Entitys.Model
 {
-    public class AuthorModel : IRecord, IPeople
+    public class AuthorModel : IRecord, IPeople, IAuthor<BookModel>
     {
         public int Id { get; set; }
 

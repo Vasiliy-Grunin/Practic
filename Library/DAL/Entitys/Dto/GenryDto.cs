@@ -5,9 +5,8 @@ using System.Runtime.Serialization;
 namespace Library.DAL.Entitys.Dto
 {
     [DataContract]
-    public class GenryDto : IGenry<BookDto>
+    public class GenryDto : Default.GenryDto, IGenry<Default.BookDto>
     {
-        public string Name { get; set; }
-        public virtual List<BookDto> Books { get; set; }
+        public virtual List<Default.BookDto> Books { get; set; }
     }
 }

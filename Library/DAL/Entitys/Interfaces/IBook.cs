@@ -7,12 +7,16 @@ namespace Library.DAL.Entitys.Interfaces
     /// </summary>
     /// <typeparam name="TAuthor">The reprisentor a AuthorModel</typeparam>
     /// <typeparam name="EGenry">The reprisentor a GenryModel</typeparam>
-    interface IBook<TAuthor, EGenry>
+    interface IBook<TAuthor, EGenry> : IBook
         where TAuthor : IPeople
         where EGenry : class
     {
-        string Title { get; set; }
         TAuthor Author { get; set; }
         List<EGenry> Genre { get; set; }
+    }
+
+    interface IBook
+    {
+        string Title { get; set; }
     }
 }

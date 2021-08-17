@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 
-namespace Library.DAL.Entitys.Dto
+namespace Library.DAL.Entitys.Dto.Default
 {
     /// <summary>
     /// People Model
@@ -35,7 +35,7 @@ namespace Library.DAL.Entitys.Dto
             => Equals(obj as PersonDto);
 
         public override string ToString()
-            => string.Format("{0} {1} {2} {4}", LastName, Name, MidleName, Birthday);
+            => string.Format("{{0}} {{1}} {{2}} {{4}}", LastName, Name, MidleName, Birthday);
 
         public override int GetHashCode() => Name.GetHashCode()
                                              ^ LastName.GetHashCode()

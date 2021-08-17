@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using Library.DAL.Entitys.Dto;
+using Library.DAL.Entitys.Dto.Default;
 
 namespace Library.PAL.Controllers
 {

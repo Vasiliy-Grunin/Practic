@@ -1,4 +1,4 @@
-﻿using Library.DAL.Entitys.Dto;
+﻿using Library.DAL.Entitys.Dto.Default;
 using Library.DAL.Entitys.Model;
 using Library.DAL.Service.GynericRepositorys;
 using System.Collections.Generic;

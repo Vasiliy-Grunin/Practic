@@ -1,4 +1,4 @@
-﻿using Library.DAL.Entitys.Dto;
+﻿using Library.DAL.Entitys.Dto.Default;
 using Library.DAL.Service.UnityOfwork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -1,6 +1,6 @@
 ﻿using Library.DAL.Data;
 using Library.DAL.Entitys.Model;
-using Library.DAL.Entitys.Dto;
+using Library.DAL.Entitys.Dto.Default;
 using Library.DAL.Service.GynericRepositorys;
 using AutoMapper;
 
