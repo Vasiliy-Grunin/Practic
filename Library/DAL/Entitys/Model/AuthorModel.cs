@@ -13,6 +13,6 @@ namespace Library.DAL.Entitys.Model
 
         public string MidleName { get; set; }
 
-        public List<BookModel> Books { get; set; } = new List<BookModel>();
+        public virtual List<BookModel> Books { get; set; } = new List<BookModel>();
     }
 }

@@ -46,22 +46,23 @@ namespace Library
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseSwagger(c =>
-            {
-                c.RouteTemplate = "/swagger/{documentName}/swagger.json";
-                c.SerializeAsV2 = true;
-            });
-
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
-                c.RoutePrefix = string.Empty;
-            });
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseMigrationsEndPoint();
+
+                app.UseSwagger(c =>
+                {
+                    c.RouteTemplate = "/swagger/{documentName}/swagger.json";
+                    c.SerializeAsV2 = true;
+                });
+
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                    c.RoutePrefix = string.Empty;
+                });
             }
             else
             {

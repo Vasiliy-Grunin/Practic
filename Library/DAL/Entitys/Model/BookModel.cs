@@ -9,10 +9,10 @@ namespace Library.DAL.Entitys.Model
 
         public string Title { get; set; }
 
-        public AuthorModel Author { get; set; }
+        public virtual AuthorModel Author { get; set; }
 
-        public List<GenryModel> Genre { get; set; } = new List<GenryModel>();
+        public virtual List<GenryModel> Genre { get; set; } = new List<GenryModel>();
 
-        public List<PeopleModel> Master { get; set; } = new List<PeopleModel>();
+        public virtual List<PeopleModel> Master { get; set; } = new List<PeopleModel>();
     }
 }

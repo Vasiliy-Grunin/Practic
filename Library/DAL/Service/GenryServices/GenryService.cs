@@ -4,6 +4,7 @@ using Library.DAL.Entitys.Dto.Default;
 using Library.DAL.Entitys.Model;
 using Library.DAL.Service.GynericRepositorys;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Library.DAL.Service.GenryServices
 {
@@ -15,8 +16,7 @@ namespace Library.DAL.Service.GenryServices
         }
 
         public Dictionary<string, int> GetStatistic()
-        {
-            return new Dictionary<string, int>();
-        }
+            => context.Genries
+            .ToDictionary(genry => genry.Name, genry => genry.Books.Count);
     }
 }
