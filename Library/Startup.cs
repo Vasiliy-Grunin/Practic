@@ -8,6 +8,9 @@ using Microsoft.OpenApi.Models;
 using Library.DAL.Data;
 using Library.DAL.Service.UnityOfwork;
 using System.Linq;
+using System.Reflection;
+using System.IO;
+using System;
 
 namespace Library
 {
@@ -40,6 +43,11 @@ namespace Library
                     Description = "A simple example ASP.NET Core Web API",
                 });
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                c.DescribeAllParametersInCamelCase();
+
+                //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                //c.IncludeXmlComments(xmlPath);
             });
 
         }

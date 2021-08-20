@@ -11,6 +11,5 @@ namespace Library.DAL.Entitys.Interfaces
     /// </summary>
     public interface IDto
     {
-        IRecord ToModel();
     }
 }

@@ -16,6 +16,6 @@ namespace Library.DAL.Entitys.Model
 
         public DateTime Birthday { get; set; }
 
-        public virtual List<BookModel> Books { get; set; } = new List<BookModel>();
+        public virtual List<BookModel> Books { get; set; }
     }
 }

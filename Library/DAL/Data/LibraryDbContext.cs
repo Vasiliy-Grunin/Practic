@@ -1,4 +1,5 @@
 ﻿using Library.DAL.Entitys.Model;
+using Library.DAL.Entitys.Model.Inheritance;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,14 @@ namespace Library.DAL.Data
         public DbSet<GenryModel> Genries { get; set; }
 
         public DbSet<AuthorModel> Authors { get; set; }
+
+        public DbSet<AuthorInheritance> AuthorInheritances { get; set; }
+
+        public DbSet<BookInheritance> BookInheritances { get; set; }
+
+        public DbSet<GenryInheritance> GenryInheritances { get; set; }
+
+        public DbSet<PeopleInheritance> PeopleInheritances { get; set; }
 
         public void AddCascadingObject(object rootEntity)
         {

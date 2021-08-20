@@ -11,8 +11,8 @@ namespace Library.DAL.Entitys.Model
 
         public virtual AuthorModel Author { get; set; }
 
-        public virtual List<GenryModel> Genre { get; set; } = new List<GenryModel>();
+        public virtual List<GenryModel> Genre { get; set; }
 
-        public virtual List<PeopleModel> Master { get; set; } = new List<PeopleModel>();
+        public virtual List<PeopleModel> Master { get; set; }
     }
 }

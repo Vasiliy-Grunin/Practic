@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Library.DAL.Data;
+using Library.DAL.Entitys.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,8 @@ namespace Library.DAL.Service.GynericRepositorys
     /// <typeparam name="TDto">Class Dto</typeparam>
     public class GynericRepository<TEntity,TDto>
         : IRepository<TEntity,TDto>
-        where TEntity : class
-        where TDto : class
+        where TEntity : class, IRecord
+        where TDto : class, IDto
     {
         protected readonly LibraryDbContext context;
 
@@ -47,14 +48,13 @@ namespace Library.DAL.Service.GynericRepositorys
 
         public virtual IEnumerable<TDto> Get()
             => mapper.Map<IEnumerable<TEntity>, IEnumerable<TDto>>
-            (context.Set<TEntity>().AsEnumerable());
+            (context.Set<TEntity>());
 
         public virtual IEnumerable<TDto> Get(string query)
         {
             return mapper
                 .Map<IEnumerable<TEntity>, IEnumerable<TDto>>(context.Set<TEntity>()
-                .Where(entity => entity.ToString().Contains(query))
-                .AsEnumerable());
+                .AsEnumerable().Where(entity => entity.ToString().Contains(query)));
         }
 
         public virtual IEnumerable<TDto> Get(params string[] querys)

@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace Library.DAL.Entitys.Dto.Default
 {
     [DataContract]
-    public class AuthorDto : IPeople, IEquatable<AuthorDto>
+    public class AuthorDto : IPeople, IEquatable<AuthorDto>, IDto
     {
         [Required]
         public virtual string Name { get; set; }

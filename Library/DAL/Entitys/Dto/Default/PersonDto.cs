@@ -10,7 +10,7 @@ namespace Library.DAL.Entitys.Dto.Default
     /// </summary>
     
     [DataContract]
-    public class PersonDto : IEquatable<PersonDto>, IPeople, IPerson
+    public class PersonDto : IEquatable<PersonDto>, IPeople, IPerson, IDto
     {
         [Required]
         [StringLength(50, MinimumLength = 1)]
