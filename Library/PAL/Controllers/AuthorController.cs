@@ -8,9 +8,9 @@ namespace Library.PAL.Controllers
 {
     public class AuthorController : Controller
     {
-        public AuthorController(IUnityOfWork context)
+        public AuthorController(IUnityOfWork unityWork)
         {
-            service = context;
+            service = unityWork;
         }
 
         private readonly IUnityOfWork service;
@@ -53,7 +53,7 @@ namespace Library.PAL.Controllers
         public ActionResult<AuthorDto> Delete([FromBody][Bind("LastName,Name,MidleName")] AuthorDto author)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState.ToString());
+                return BadRequest(ModelState);
 
             service.Authors.Remove(author);
             return Ok(author);
@@ -70,7 +70,7 @@ namespace Library.PAL.Controllers
         public ActionResult<AuthorDto> AddPerson([FromBody][Bind("LastName,Name,MidleName")] AuthorDto author)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState.ToString());
+                return BadRequest(ModelState);
 
             service.Authors.Add(author);
             return Ok(author);

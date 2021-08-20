@@ -24,9 +24,6 @@ namespace Library.PAL.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<List<GenryDto>> GetGenry()
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState.ToString());
-
             return Ok(service.Genrys.Get());
         }
 
@@ -35,13 +32,9 @@ namespace Library.PAL.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("GenryDto/Statistic")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GenryDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Dictionary<string, int>> GetStatistics()
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState.ToString());
-
             return Ok(service.Genrys.GetStatistic());
         }
 
@@ -55,7 +48,7 @@ namespace Library.PAL.Controllers
         public ActionResult<GenryDto> Add(GenryDto genry)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState.ToString());
+                return BadRequest(ModelState);
 
             service.Genrys.Add(genry);
             return Ok(genry);

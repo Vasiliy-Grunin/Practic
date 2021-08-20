@@ -3,7 +3,9 @@ using Library.DAL.Data;
 using Library.DAL.Entitys.Dto.Default;
 using Library.DAL.Entitys.Model;
 using Library.DAL.Service.GynericRepositorys;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Library.DAL.Service.GenryServices
 {
@@ -15,8 +17,8 @@ namespace Library.DAL.Service.GenryServices
         }
 
         public Dictionary<string, int> GetStatistic()
-        {
-            return new Dictionary<string, int>();
-        }
+            => context.Genries
+            .Include(entity => entity.Books)
+            .ToDictionary(genry => genry.Name, genry => genry.Books.Count);
     }
 }

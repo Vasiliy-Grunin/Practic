@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Library.DAL.Service.UnityOfwork;
-using Library.DAL.Entitys.Dto;
+using Library.DAL.Entitys.Dto.Default;
 
 namespace Library.PAL.Controllers
 {
@@ -20,7 +20,7 @@ namespace Library.PAL.Controllers
         /// </summary>
         /// <param name="title"></param>
         /// <returns></returns>
-        [HttpGet("book/{Title}/")]
+        [HttpGet("book/{title}/")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BookDto))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<List<BookDto>> GetBooks(string title)
@@ -54,7 +54,7 @@ namespace Library.PAL.Controllers
         public ActionResult CreateBook([FromBody][Bind("Author,Name,Direction")] BookDto book)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState.ToString());
+                return BadRequest(ModelState);
 
             service.Books.Add(book);
             return Ok();
@@ -70,7 +70,7 @@ namespace Library.PAL.Controllers
         public ActionResult Delete([FromBody][Bind("Author,Name,Direction")] BookDto book)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState.ToString());
+                return BadRequest(ModelState);
 
             service.Books.Remove(book);
             return Ok();

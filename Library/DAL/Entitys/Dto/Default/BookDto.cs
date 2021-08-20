@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Library.DAL.Entitys.Dto.Default
 {
-    public class BookDto : IBook
+    public class BookDto : IBook, IDto
     {
         [Required]
         [StringLength(50, ErrorMessage = "the name is too long", MinimumLength = 1)]

@@ -2,7 +2,7 @@
 
 namespace Library.DAL.Entitys.Dto.Default
 {
-    public class GenryDto : IGenry
+    public class GenryDto : IGenry, IDto
     {
         public string Name { get; set; }
     }
